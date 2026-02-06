@@ -57,11 +57,20 @@ export const analytics = {
     },
 
     affiliateLinkClicked: (source: string) => {
-        trackEvent('affiliate_link_clicked', {
+        // Track as a high-value conversion for Google Ads / Meta
+        trackEvent('conversion', {
+            send_to: 'AW-17936797026',
             event_category: 'conversion',
-            event_label: 'Perspective Affiliate Link',
+            event_label: 'Perspective Affiliate Alpha',
             source: source,
-            value: 50 // Estimated value of a trial signup
+            value: 250.00, // High weight value to train the algorithm for high-intent users
+            currency: 'USD'
+        });
+
+        // Also track as a custom event for other platforms
+        trackEvent('affiliate_link_clicked', {
+            source: source,
+            value: 250.00
         });
     },
 

@@ -2,11 +2,16 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { analytics } from '@/lib/analytics';
 
 export default function VSLSection() {
     const [isPlaying, setIsPlaying] = useState(false);
 
     const affiliateLink = "https://try.perspective.co/g6bkxte2qkzh";
+
+    const handleAffiliateClick = () => {
+        analytics.affiliateLinkClicked('vsl_section');
+    };
 
     return (
         <section id="vsl-section" className="py-24 px-4 bg-background relative overflow-hidden">
@@ -91,6 +96,7 @@ export default function VSLSection() {
                         href={affiliateLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={handleAffiliateClick}
                         className="btn-primary w-full py-6 text-2xl shadow-accent/40 block mb-4 shimmer"
                     >
                         Get My Offer Only With This Link →

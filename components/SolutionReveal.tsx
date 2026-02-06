@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { analytics } from '@/lib/analytics';
 
 export default function SolutionReveal() {
     const [activeTab, setActiveTab] = useState<'traditional' | 'interactive'>('traditional');
@@ -8,6 +9,10 @@ export default function SolutionReveal() {
     const [bookmarked, setBookmarked] = useState(false);
 
     const affiliateLink = "https://try.perspective.co/g6bkxte2qkzh";
+
+    const handleAffiliateClick = () => {
+        analytics.affiliateLinkClicked('solution_reveal');
+    };
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(affiliateLink);
@@ -190,6 +195,7 @@ export default function SolutionReveal() {
                                 href={affiliateLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={handleAffiliateClick}
                                 className="btn-primary w-full py-6 text-2xl shimmer flex items-center justify-center gap-2 shadow-accent/40"
                             >
                                 Claim My 1-Month Free & Bonus →
