@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function VSLSection() {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -16,18 +17,17 @@ export default function VSLSection() {
                         Real Results. <span className="text-white">Real People.</span>
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl group hover:border-primary/50 transition-colors">
-                            <img src="/testimonial-1.png" alt="Testimonial 1" className="w-full h-auto" />
-                        </div>
-                        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl group hover:border-primary/50 transition-colors">
-                            <img src="/testimonial-2.png" alt="Testimonial 2" className="w-full h-auto" />
-                        </div>
-                        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl group hover:border-primary/50 transition-colors">
-                            <img src="/testimonial-3.png" alt="Testimonial 3" className="w-full h-auto" />
-                        </div>
-                        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl group hover:border-primary/50 transition-colors">
-                            <img src="/testimonial-4.png" alt="Testimonial 4" className="w-full h-auto" />
-                        </div>
+                        {[1, 2, 3, 4].map((i) => (
+                            <div key={i} className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl group hover:border-primary/50 transition-colors relative aspect-[14/9]">
+                                <Image
+                                    src={`/testimonial-${i}.png`}
+                                    alt={`Testimonial ${i}`}
+                                    fill
+                                    className="object-contain transition-transform duration-500 group-hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
 
@@ -52,19 +52,22 @@ export default function VSLSection() {
                     {!isPlaying ? (
                         <>
                             <div className="absolute inset-0 bg-black/10 z-10 transition-colors group-hover:bg-black/0" />
-                            <img
+                            <Image
                                 src="/vsl-thumb.png"
                                 alt="Agency Revenue Case Study"
-                                className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 brightness-110 contrast-[1.05] saturate-[1.1]"
+                                fill
+                                priority
+                                className="object-cover transition-all duration-700 group-hover:scale-105 brightness-110 contrast-[1.05] saturate-[1.1]"
+                                sizes="(max-width: 1200px) 100vw, 1000px"
                             />
                             <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
-                                <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 group-hover:bg-accent border-4 border-white/30 backdrop-blur-sm">
+                                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 group-hover:bg-accent border-4 border-white/30 backdrop-blur-sm">
                                     <svg className="w-10 h-10 text-white ml-2" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 </div>
                                 <div className="mt-8 px-8 py-3 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow-2xl">
-                                    <span className="text-white font-bold tracking-wide">CLICK TO WATCH CASE STUDY (34:12)</span>
+                                    <span className="text-white font-bold tracking-wide text-xs md:text-base">CLICK TO WATCH CASE STUDY (34:12)</span>
                                 </div>
                             </div>
                         </>

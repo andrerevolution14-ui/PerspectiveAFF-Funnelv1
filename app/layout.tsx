@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "700", "900"] });
 
 export const metadata: Metadata = {
   title: "Stop Burning Ad Spend | The 2026 Mobile Friction Audit",
@@ -51,12 +55,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body className="antialiased">
+      <body className={`${inter.className} antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );

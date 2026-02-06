@@ -24,51 +24,39 @@ export default function HeroSection() {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                 {/* Badge */}
-                <div
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
-                        }`}
-                >
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8 animate-fade-in-down">
                     <span className="relative flex h-3 w-3">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
                     </span>
-                    <span className="text-sm font-medium text-accent">Critical Audit: Your Marketing is Leaking</span>
+                    <span className="text-sm font-bold text-accent tracking-wide uppercase">Mobile Leak Detection: Active</span>
                 </div>
 
                 {/* Main Headline */}
-                <h1
-                    className={`mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                        }`}
-                >
+                <h1 className="mb-6 animate-fade-in-up">
                     Stop Burning Your Ad Budget on a Landing Page That Was <span className="text-white">Built for 2015</span>
                 </h1>
 
                 {/* Sub-headline */}
-                <p
-                    className={`text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                        }`}
-                >
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed animate-fade-in-up [animation-delay:200ms]">
                     80% of your traffic is mobile, but your conversion rate is trapped on desktop.
-                    Most businesses are losing <span className="text-accent font-semibold">thousands in invisible revenue</span>
-                    due to "Mobile Friction."
+                    Most businesses are losing <span className="text-white font-bold underline decoration-accent/50">thousands in invisible revenue</span>
+                    due to outdated architecture.
                 </p>
 
                 {/* CTA Buttons */}
-                <div
-                    className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                        }`}
-                >
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in-up [animation-delay:400ms]">
                     <button
                         onClick={scrollToCalculator}
-                        className="btn-primary"
+                        className="btn-primary px-10 py-5 text-xl shimmer shadow-accent/20"
                     >
-                        Detect Your Revenue Leak →
+                        Detect My Revenue Leak →
                     </button>
                     <button
                         onClick={() => document.getElementById('pain-section')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="btn-secondary"
+                        className="btn-secondary px-8 py-5 text-lg border-white/5 hover:border-white/20"
                     >
-                        Why is this happening?
+                        See Why This Happens
                     </button>
                 </div>
 
