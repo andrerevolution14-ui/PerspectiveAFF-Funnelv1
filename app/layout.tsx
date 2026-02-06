@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "700", "900"] });
@@ -55,6 +56,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-10835818672"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-10835818672');
+          `}
+        </Script>
+      </head>
       <body className={`${inter.className} antialiased`}>
         {children}
         <Analytics />
