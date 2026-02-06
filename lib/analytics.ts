@@ -57,17 +57,24 @@ export const analytics = {
     },
 
     affiliateLinkClicked: (source: string) => {
-        // Track as a high-value conversion for Google Ads / Meta
+        // 1. Specific Google Ads Exit Click Conversion (AW-17936797026/xCYCCJTPhfQbEOKa9-hC)
+        trackEvent('conversion', {
+            'send_to': 'AW-17936797026/xCYCCJTPhfQbEOKa9-hC',
+            'value': 1.0,
+            'currency': 'CHF'
+        });
+
+        // 2. High-Value Alpha Training (AW-17936797026)
         trackEvent('conversion', {
             send_to: 'AW-17936797026',
             event_category: 'conversion',
             event_label: 'Perspective Affiliate Alpha',
             source: source,
-            value: 250.00, // High weight value to train the algorithm for high-intent users
+            value: 250.00, // High weight to find quality users
             currency: 'USD'
         });
 
-        // Also track as a custom event for other platforms
+        // 3. Custom Event for general analytics
         trackEvent('affiliate_link_clicked', {
             source: source,
             value: 250.00
