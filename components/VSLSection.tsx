@@ -99,7 +99,7 @@ export default function VSLSection() {
                         onClick={handleAffiliateClick}
                         className="btn-primary w-full py-6 text-2xl shadow-accent/40 block mb-4 shimmer"
                     >
-                        Get My Offer Only With This Link →
+                        Claim My Pre-Built Funnels + 1 Month FREE trial →
                     </a>
                     <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
                         <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">

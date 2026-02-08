@@ -198,7 +198,7 @@ export default function SolutionReveal() {
                                 onClick={handleAffiliateClick}
                                 className="btn-primary w-full py-6 text-2xl shimmer flex items-center justify-center gap-2 shadow-accent/40"
                             >
-                                Claim My 1-Month Free & Bonus →
+                                Claim My Pre-Built Funnels + 1 Month FREE trial →
                             </a>
 
                             <div className="flex gap-4">
